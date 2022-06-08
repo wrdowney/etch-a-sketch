@@ -6,12 +6,24 @@ let size = DEFAULT_SIZE;
 let mode = DEFAULT_MODE;
 let color = DEFAULT_COLOR;
 
+const slider = document.getElementById("size");
 const grid = document.querySelector(".grid-container");
 
+slider.oninput = function() {
+    size = slider.value;
+    refreshGrid();
+}
 
+function refreshGrid() {
+    deleteGrid();
+    createGrid(size);
+}
+
+function deleteGrid() {
+    grid.innerHTML = '';
+}
 
 function createGrid(size) {
-    
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     grid.style.cssText += "border: 2px solid black;"
