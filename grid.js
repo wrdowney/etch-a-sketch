@@ -30,7 +30,23 @@ document.body.onmouseup = () => (mouseDown = false)
 
 function changeMode(newMode) {
     mode = newMode;
+    if(mode === 'eraser') {
+        colorButton.style.backgroundColor = 'transparent';
+        rainbowButton.style.backgroundColor = 'transparent';
+        eraserButton.style.backgroundColor = 'gray';
+    }
+    else if(mode === 'color') {
+        colorButton.style.backgroundColor = 'gray';
+        rainbowButton.style.backgroundColor = 'transparent';
+        eraserButton.style.backgroundColor = 'transparent';
+    }
+    else if(mode === 'rainbow') {
+        colorButton.style.backgroundColor = 'transparent';
+        rainbowButton.style.backgroundColor = 'gray';
+        eraserButton.style.backgroundColor = 'transparent';
+    }
 }
+
 
 slider.oninput = function() {
     size = slider.value;
