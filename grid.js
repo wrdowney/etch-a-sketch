@@ -20,7 +20,11 @@ eraserButton.addEventListener("click", () => changeMode('eraser'));
 
 const clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", () => refreshGrid());
-let mouseDown = false
+
+const colorPicker = document.getElementById("colorpicker");
+colorPicker.oninput = () => color = colorPicker.value;
+
+let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
