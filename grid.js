@@ -8,7 +8,7 @@ let color = DEFAULT_COLOR;
 
 const slider = document.getElementById("size");
 const grid = document.querySelector(".grid-container");
-
+const sizeDisplay = document.querySelector(".size-display");
 const colorButton = document.getElementById("color");
 colorButton.addEventListener("click", () => changeMode('color'));
 
@@ -30,6 +30,7 @@ function changeMode(newMode) {
 
 slider.oninput = function() {
     size = slider.value;
+    sizeDisplay.textContent = `${size} x ${size}`;
     refreshGrid();
 }
 
