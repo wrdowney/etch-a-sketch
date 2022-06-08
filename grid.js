@@ -8,9 +8,25 @@ let color = DEFAULT_COLOR;
 
 const slider = document.getElementById("size");
 const grid = document.querySelector(".grid-container");
+
+const colorButton = document.getElementById("color");
+colorButton.addEventListener("click", () => changeMode('color'));
+
+const rainbowButton = document.getElementById("rainbow");
+rainbowButton.addEventListener("click", () => changeMode('rainbow'));
+
+const eraserButton = document.getElementById("eraser");
+eraserButton.addEventListener("click", () => changeMode('eraser'));
+
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => refreshGrid());
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
+
+function changeMode(newMode) {
+    mode = newMode;
+}
 
 slider.oninput = function() {
     size = slider.value;
