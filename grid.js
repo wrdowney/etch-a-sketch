@@ -8,6 +8,9 @@ let color = DEFAULT_COLOR;
 
 const slider = document.getElementById("size");
 const grid = document.querySelector(".grid-container");
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 slider.oninput = function() {
     size = slider.value;
@@ -36,7 +39,7 @@ function createGrid(size) {
 }
 
 function changeColor(event) {
-    if (event.type === 'mouseover' && event.type === 'mousedown') return;
+    if (event.type === 'mouseover'&& !mouseDown) return;
     if (mode === 'rainbow') {
         const randomR = Math.floor(Math.random() * 256);
         const randomG = Math.floor(Math.random() * 256);
